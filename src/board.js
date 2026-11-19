@@ -124,8 +124,27 @@ function renderWorkbench() {
   renderShelf(o);
   renderBoard();
   $("readout").className = "readout " + S.msg.tone;
-  $("readout").textContent = S.msg.text;
+  $("readout").textContent = firstOrderMessage(o);
   renderControls(o);
+}
+function firstOrderMessage(o) {
+  if (o.id === "d0-01" && S.phase === "pick") {
+    if (S.sel === null) return "선반의 식빵 줄을 누르면 도마에 올라와요.";
+    if (S.msg.tone === "bad") return `고른 식빵은 ${beatsKo(loafBeats(S.sel))}이에요. ${beatsKo(loafBeats(o.loaf))} 길이를 선반에서 찾아요.`;
+    if (S.msg.tone === "warn") return `고른 식빵은 ${beatsKo(loafBeats(S.sel))}이에요. 도마를 보고 ‘이 빵 고르기’를 눌러요.`;
+    return "도마의 길이를 눈금으로 읽고 ‘이 빵 고르기’를 눌러요.";
+  }
+  if (o.id === "d1-01" && S.phase === "mark") {
+    const pieces = S.cuts[0] + 1;
+    if (S.msg.tone === "warn") return `${o.ns[0]}조각으로 고쳐 두었어요. ‘두 조각으로 썰기’를 눌러요.`;
+    if (S.msg.tone === "bad") return pieces < o.ns[0]
+      ? `지금은 ${pieces}조각이에요. 도마의 빵을 눌러 칼집을 더해요.`
+      : `지금은 ${pieces}조각이에요. − 로 칼집을 줄여 ${o.ns[0]}조각을 만들어요.`;
+    return pieces === o.ns[0]
+      ? `지금은 ${pieces}조각이에요. ‘두 조각으로 썰기’를 눌러요.`
+      : `지금은 ${pieces}조각이에요. 빵을 누르거나 + 로 칼집을 내요.`;
+  }
+  return S.msg.text;
 }
 function renderHud() {
   const d = dayOf(S.day), n = d.orders.length, last = queueOf(n, S.results).length - 1, cur = baseAt(S);
@@ -187,9 +206,16 @@ function renderControls(o) {
   $("cSlice").toggleAttribute("hidden", ph !== "slice");
   $("cDeliver").toggleAttribute("hidden", ph !== "deliver");
   $("cScene").toggleAttribute("hidden", ph !== "scene");
+  if (ph === "pick") {
+    $("pickOk").textContent = o.id === "d0-01" ? "이 빵 고르기" : "확정";
+    $("pickOk").disabled = o.id === "d0-01" && S.sel === null;
+  }
   if (PAINT[ph]) PAINT[ph](o);
 }
-PAINT.mark = (o) => { $("markOut").textContent = (o.ns.length > 1 ? `${S.focus + 1}번째 · ` : "") + `칼집 ${S.cuts[S.focus] || 0}번`; };
+PAINT.mark = (o) => {
+  $("markOut").textContent = (o.ns.length > 1 ? `${S.focus + 1}번째 · ` : "") + `칼집 ${S.cuts[S.focus] || 0}번`;
+  $("markOk").textContent = o.id === "d1-01" ? "두 조각으로 썰기" : "확정";
+};
 PAINT.label = (o) => {
   $("yes").disabled = S.wrong.includes("y");
   $("no").disabled = S.wrong.includes("n");

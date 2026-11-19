@@ -693,6 +693,100 @@ button:active:not(:disabled) { box-shadow: inset 0 2px 0 var(--ink-shadow); }
 #app.tight[data-mode=free] .board.free-browse.paired .mold { height: 17px; }
 #app.tight[data-mode=free] .board.free-browse.paired .lane { height: 26px; }
 .book-scenes small { font-size: 12px; }
+.intro-screen {
+  gap: 16px;
+  padding: 22px;
+  background: linear-gradient(155deg, var(--panel), var(--counter) 68%);
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: 1rem;
+}
+.intro-screen [hidden] { display: none !important; }
+#app[data-mode="intro"] #rotate { display: none; }
+.intro-screen > * { flex: none; }
+.intro-header { display: flex; align-items: center; gap: 12px; }
+.intro-header h1 { font-size: clamp(1.3125rem, 5.5vw, 1.75rem); line-height: 1.25; }
+.intro-timer { width: 58px; height: 58px; flex: none; }
+.intro-eyebrow { color: var(--steel); font-size: .875rem; font-weight: 800; margin-bottom: 3px; }
+.intro-instruction { font-weight: 800; font-size: 1.125rem; line-height: 1.4; }
+.intro-board {
+  border: 2px solid var(--board-edge);
+  border-radius: 18px;
+  padding: 20px 18px 16px;
+  background-color: var(--board);
+  background-image: repeating-linear-gradient(2deg, transparent 0 17px, var(--wood-grain) 17px 18px, transparent 18px 34px);
+  box-shadow: inset 0 0 0 3px var(--wood-glint), 0 3px 0 var(--ink-shadow);
+}
+.intro-whole-label { margin-bottom: 18px; font-weight: 800; color: var(--ink-2); }
+.intro-loaf {
+  position: relative;
+  width: 100%;
+  display: block;
+  border: 4px solid var(--crust);
+  border-radius: 30px 30px 12px 12px;
+  background-color: var(--crumb);
+  background-image: radial-gradient(ellipse 1.6px 1px at 21% 35%, var(--wood-grain) 98%, transparent), radial-gradient(ellipse 1.4px 1.2px at 68% 61%, var(--wood-grain) 98%, transparent), linear-gradient(0deg, var(--crumb-2), var(--crumb));
+  background-size: 17px 13px, 19px 14px, 100% 100%;
+  box-shadow: inset 0 5px 0 var(--wood-glint), 0 5px 0 var(--board-edge);
+  padding: 0;
+  overflow: hidden;
+}
+.intro-cut-loaf { min-height: 160px; cursor: pointer; }
+.intro-cut-loaf:active { transform: translateY(1px); }
+.intro-pieces, .intro-marks { position: absolute; inset: 0; pointer-events: none; }
+.intro-piece { position: absolute; top: 0; bottom: 0; display: grid; place-items: center; }
+.intro-piece:nth-child(even) { background: color-mix(in srgb, var(--crumb-2) 65%, transparent); }
+.intro-mark { position: absolute; top: 0; bottom: 0; width: 0; border-left: 3px dashed var(--crust); }
+.intro-tap-label {
+  position: relative;
+  display: inline-block;
+  background: var(--paper);
+  border: 1px solid var(--crust);
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-weight: 800;
+  color: var(--ink);
+}
+.intro-ruler { display: flex; justify-content: space-between; border-top: 2px solid var(--ink-2); margin-top: 14px; padding-top: 7px; color: var(--ink-2); font-size: .875rem; font-weight: 800; }
+.intro-ruler > span::before { content: ""; display: block; height: 7px; border-left: 2px solid var(--ink-2); margin-top: -8px; }
+.intro-ruler > span:last-child { text-align: right; }
+.intro-ruler > span:last-child::before { border-left: 0; border-right: 2px solid var(--ink-2); }
+.intro-action-hint { margin-top: 12px; color: var(--ink-2); line-height: 1.5; }
+.intro-status { font-weight: 800; font-size: 1.125rem; min-height: 1.5em; }
+.intro-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: auto; }
+.intro-footer .btn { min-width: 44px; min-height: 44px; font-size: .875rem; padding: 9px 12px; }
+.intro-footer .intro-skip { margin-left: auto; background: transparent; }
+.intro-compare-title { font-size: 1.0625rem; line-height: 1.4; margin: 0 0 12px; }
+.intro-compare-board { position: relative; }
+.intro-boundaries { display: flex; justify-content: space-between; font-size: .875rem; color: var(--ink-2); font-weight: 800; margin-bottom: 8px; }
+.intro-comparison-row + .intro-comparison-row { margin-top: 16px; }
+.intro-row-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+.intro-row-heading strong { font-size: 1rem; }
+.intro-score { width: 114px; height: 50px; flex: none; overflow: visible; }
+.intro-comparison-loaf { height: 70px; border-radius: 18px 18px 8px 8px; }
+.intro-note-name { font-size: .9375rem; line-height: 1.4; margin-top: 7px; font-weight: 700; }
+.intro-explanation { font-size: 1.125rem; font-weight: 800; line-height: 1.45; margin-top: 14px; }
+.intro-listen-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+.intro-listen-actions .btn { min-height: 48px; font-size: .9375rem; }
+.intro-audio-status { color: var(--ink-2); font-size: .875rem; line-height: 1.5; margin-top: 8px; }
+.intro-next { min-height: 52px; font-size: 1.0625rem; }
+@media (max-width: 359px) {
+  .intro-screen { padding: 16px; gap: 14px; }
+  .intro-header { gap: 8px; }
+  .intro-timer { width: 44px; height: 44px; }
+  .intro-header h1 { font-size: 1.3125rem; }
+  .intro-board { padding: 16px 14px 14px; }
+  .intro-cut-loaf { min-height: 144px; }
+  .intro-listen-actions { grid-template-columns: 1fr; }
+}
+.intro-comparison-row.intro-playing { outline: 2px solid var(--steel); outline-offset: 5px; border-radius: 8px; }
+.intro-row-heading { flex-wrap: wrap; }
+.intro-playing-label { margin-left: auto; font-size: .875rem; font-weight: 800; color: var(--steel); }
+.intro-playhead { position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--ink); transform: translateX(-50%); pointer-events: none; }
+.intro-piece.intro-current { box-shadow: inset 0 0 0 4px var(--steel); background-color: var(--lit); }
+.intro-finished .intro-loaf { border-right-width: 7px; }
+.intro-reduced .intro-playhead { display: none; }
+#introListen2[aria-pressed="true"], #introListen3[aria-pressed="true"] { border-color: var(--steel); background-color: var(--steel-soft); }
 </style>
 </head>
 <body>
@@ -1020,6 +1114,58 @@ button:active:not(:disabled) { box-shadow: inset 0 2px 0 var(--ink-shadow); }
     <p id="coachText"></p>
     <div id="coachChoices" hidden><button class="btn" id="coachYes" type="button">해 볼게요</button><button class="btn" id="coachNo" type="button">나중에</button></div>
   </div>
+    <section class="screen intro-screen" id="introScr" data-screen="intro" aria-labelledby="introTitle" hidden>
+    <header class="intro-header">
+      <svg class="intro-timer" viewBox="0 0 96 96" aria-hidden="true"><use href="#timer-normal"/></svg>
+      <div><p class="intro-eyebrow">연습</p><h1 id="introTitle" tabindex="-1">같은 한 박, 다른 조각</h1></div>
+    </header>
+    <p class="intro-instruction" id="introInstruction">이 빵을 똑같이 세 조각으로 나눠요.</p>
+
+    <div id="introCutStage">
+      <div class="intro-board">
+        <p class="intro-whole-label" id="introWholeLabel"></p>
+        <button class="intro-loaf intro-cut-loaf" id="introBread" type="button" aria-describedby="introActionHint introStatus">
+          <span class="intro-pieces" id="introBreadPieces" aria-hidden="true"></span>
+          <span class="intro-marks" id="introBreadMarks" aria-hidden="true"></span>
+          <span class="intro-tap-label" aria-hidden="true">빵을 눌러요</span>
+        </button>
+        <div class="intro-ruler" aria-hidden="true"><span>시작</span><span id="introCutEnd"></span></div>
+      </div>
+      <p class="intro-action-hint" id="introActionHint">빵을 누르면 칼집이 하나 생겨요.</p>
+    </div>
+
+    <div id="introCompareStage" hidden>
+      <h2 class="intro-compare-title" id="introCompareTitle" tabindex="-1">두 빵의 시작과 끝을 비교해요.</h2>
+      <div class="intro-board intro-compare-board">
+        <div class="intro-boundaries" aria-hidden="true"><span>같은 시작</span><span>같은 끝</span></div>
+        <div class="intro-comparison-row" id="introRow2" data-pieces="2">
+          <div class="intro-row-heading"><strong>두 조각</strong><svg class="intro-score" id="introScore2" role="img"></svg></div>
+          <div class="intro-loaf intro-comparison-loaf" id="introLoaf2" aria-hidden="true"></div>
+          <p class="intro-note-name" id="introName2"></p>
+        </div>
+        <div class="intro-comparison-row" id="introRow3" data-pieces="3">
+          <div class="intro-row-heading"><strong>세 조각</strong><svg class="intro-score" id="introScore3" role="img"></svg></div>
+          <div class="intro-loaf intro-comparison-loaf" id="introLoaf3" aria-hidden="true"></div>
+          <p class="intro-note-name" id="introName3"></p>
+        </div>
+        <div class="intro-ruler" aria-hidden="true"><span>시작</span><span id="introCompareEnd"></span></div>
+      </div>
+      <p class="intro-explanation">조각 수가 달라도 둘 다 한 박이에요.</p>
+      <div class="intro-listen-actions">
+        <button class="btn" id="introListen2" type="button" disabled>두 조각 듣기</button>
+        <button class="btn" id="introListen3" type="button" disabled>세 조각 듣기</button>
+      </div>
+      <p class="intro-audio-status" id="introAudioStatus">소리 없이도 비교할 수 있어요.</p>
+    </div>
+
+    <p class="intro-status" id="introStatus" role="status" aria-live="polite" aria-atomic="true"></p>
+    <button class="btn pri intro-next" id="introNext" type="button" hidden>다음 주문</button>
+    <footer class="intro-footer">
+      <button class="btn" id="introUndo" type="button" disabled>한 번 되돌리기</button>
+      <button class="btn" id="introMute" type="button" hidden aria-pressed="false">소리 끄기</button>
+      <button class="btn intro-skip" id="introSkip" type="button">건너뛰기</button>
+    </footer>
+  </section>
   <section class="screen extras-panel" id="bookScr" data-screen="book" aria-label="레시피북" hidden>
   <div class="extras-head">
     <h1 class="book-heading"><svg class="book-cover" viewBox="0 0 100 74" aria-hidden="true"><use href="#book-art"/></svg>레시피북</h1>
@@ -1280,6 +1426,7 @@ let S = {
   guide: true, slow: false, offset: 0, showMs: true, sheet: false,
   lean: 0, leanHintUsed: false, unlockedNext: false, soundHelp: false,
   calibFrom: "title", calibResult: null, calibMessage: "", calibActive: false,
+  intro: { stage: "cut", cuts: 0 },
   free: null, back: "", resetAsk: false,
 };
 function setState(patch) {
@@ -1437,11 +1584,11 @@ function coachFor(state, o, step) {
   if (state.dev || state.screen !== "shift" || state.sheet || !o) return null;
   if (step === 1 && o.id === "d0-01" && state.phase === "pick") {
     return state.sel === null
-      ? { target: "shelf", text: "줄을 누르면 식빵이 도마에 올라와요." }
-      : { target: "board", text: "길이는 아래 눈금으로 읽어요." };
+      ? { target: "shelf", text: "선반의 줄을 눌러 식빵을 올려요." }
+      : { target: "board", text: "도마 아래 눈금으로 길이를 읽어요." };
   }
   if (step === 2 && o.id === "d1-01" && state.phase === "mark") {
-    return { target: "board", text: "빵을 탭하면 칼집이 하나 늘어요." };
+    return { target: "board", text: "도마의 빵을 누르면 칼집이 하나 생겨요." };
   }
   if (step === 3 && o.id === "d1-01" && state.phase === "slice" && ["ready", "result"].includes(state.sub)) {
     if (!state.sliced) return { target: "controls", text: "먼저 기계가 써는 걸 봐요." };
@@ -1578,8 +1725,27 @@ function renderWorkbench() {
   renderShelf(o);
   renderBoard();
   $("readout").className = "readout " + S.msg.tone;
-  $("readout").textContent = S.msg.text;
+  $("readout").textContent = firstOrderMessage(o);
   renderControls(o);
+}
+function firstOrderMessage(o) {
+  if (o.id === "d0-01" && S.phase === "pick") {
+    if (S.sel === null) return "선반의 식빵 줄을 누르면 도마에 올라와요.";
+    if (S.msg.tone === "bad") return `고른 식빵은 ${beatsKo(loafBeats(S.sel))}이에요. ${beatsKo(loafBeats(o.loaf))} 길이를 선반에서 찾아요.`;
+    if (S.msg.tone === "warn") return `고른 식빵은 ${beatsKo(loafBeats(S.sel))}이에요. 도마를 보고 ‘이 빵 고르기’를 눌러요.`;
+    return "도마의 길이를 눈금으로 읽고 ‘이 빵 고르기’를 눌러요.";
+  }
+  if (o.id === "d1-01" && S.phase === "mark") {
+    const pieces = S.cuts[0] + 1;
+    if (S.msg.tone === "warn") return `${o.ns[0]}조각으로 고쳐 두었어요. ‘두 조각으로 썰기’를 눌러요.`;
+    if (S.msg.tone === "bad") return pieces < o.ns[0]
+      ? `지금은 ${pieces}조각이에요. 도마의 빵을 눌러 칼집을 더해요.`
+      : `지금은 ${pieces}조각이에요. − 로 칼집을 줄여 ${o.ns[0]}조각을 만들어요.`;
+    return pieces === o.ns[0]
+      ? `지금은 ${pieces}조각이에요. ‘두 조각으로 썰기’를 눌러요.`
+      : `지금은 ${pieces}조각이에요. 빵을 누르거나 + 로 칼집을 내요.`;
+  }
+  return S.msg.text;
 }
 function renderHud() {
   const d = dayOf(S.day), n = d.orders.length, last = queueOf(n, S.results).length - 1, cur = baseAt(S);
@@ -1641,9 +1807,16 @@ function renderControls(o) {
   $("cSlice").toggleAttribute("hidden", ph !== "slice");
   $("cDeliver").toggleAttribute("hidden", ph !== "deliver");
   $("cScene").toggleAttribute("hidden", ph !== "scene");
+  if (ph === "pick") {
+    $("pickOk").textContent = o.id === "d0-01" ? "이 빵 고르기" : "확정";
+    $("pickOk").disabled = o.id === "d0-01" && S.sel === null;
+  }
   if (PAINT[ph]) PAINT[ph](o);
 }
-PAINT.mark = (o) => { $("markOut").textContent = (o.ns.length > 1 ? `${S.focus + 1}번째 · ` : "") + `칼집 ${S.cuts[S.focus] || 0}번`; };
+PAINT.mark = (o) => {
+  $("markOut").textContent = (o.ns.length > 1 ? `${S.focus + 1}번째 · ` : "") + `칼집 ${S.cuts[S.focus] || 0}번`;
+  $("markOk").textContent = o.id === "d1-01" ? "두 조각으로 썰기" : "확정";
+};
 PAINT.label = (o) => {
   $("yes").disabled = S.wrong.includes("y");
   $("no").disabled = S.wrong.includes("n");
@@ -1709,6 +1882,8 @@ function render() {
   $("openSet").setAttribute("aria-expanded", String(S.sheet));
 
   if (switched && work) measure();
+  if (switched && S.screen !== "intro") stopIntro();
+  if (S.screen === "intro") { renderIntro(); renderIntroAudio(); }
   if (S.screen === "title") {
     const active = !!fromActive(S, save.active);
     $("resume").toggleAttribute("hidden", !active);
@@ -1746,7 +1921,9 @@ function advanceTutorial(step) {
 }
 function renderCoach() {
   const bubble = $("coach");
-  const c = coachFor(S, S.screen === "shift" ? orderAt(S) : null, tutorialStep());
+  const o = S.screen === "shift" ? orderAt(S) : null;
+  const inlineHelp = (o?.id === "d0-01" && S.phase === "pick") || (o?.id === "d1-01" && S.phase === "mark");
+  const c = inlineHelp ? null : coachFor(S, o, tutorialStep());
   bubble.toggleAttribute("hidden", !c);
   if (!c) return;
   const anchor = $(c.target).getBoundingClientRect(), app = $("app").getBoundingClientRect();
@@ -1986,7 +2163,7 @@ function stopRun(keepMarks) {
 const SAVE_KEY = "sbg_save_v1", BACKUP_KEY = "sbg_save_v1_backup";
 const defaultSave = () => ({
   version: 1,
-  settings: { volume: 0.8, muted: false, guide: true, slow: false, tapOffsetMs: 0, calibrated: false, showMs: true, motion: "system", tutorialSeen: false, tutorialStep: 0 },
+  settings: { volume: 0.8, muted: false, guide: true, slow: false, tapOffsetMs: 0, calibrated: false, showMs: true, motion: "system", tutorialSeen: false, tutorialStep: 0, introSeen: false },
   days: {},  // "d0": { passed, stamp(0 없음 · 1 도장 · 2 장인 도장), runs, best(● 수의 최고) }
   recipes: {},  // "4/3": { got, knife(0 없음 · 1 들쭉날쭉 · 2 고른 편 · 3 장인) }
   loaves: [],  // 얻은 덩이 카드(음표 분모)
@@ -2582,6 +2759,287 @@ function bindExtras() {
   $("settingsReset").addEventListener("click", () => { setState({ resetAsk: true }); $("settingsKeep").focus(); });
   $("settingsKeep").addEventListener("click", () => { setState({ resetAsk: false }); $("settingsReset").focus(); });
   $("settingsErase").addEventListener("click", resetExtraData);
+}
+
+// 맛보기의 입력은 주문·점수 계산에서 독립적으로 처리한다.
+function introTransition(intro, event) {
+  if (event === "CUT" && intro.stage === "cut" && intro.cuts < 2) {
+    const cuts = intro.cuts + 1;
+    return { stage: cuts === 2 ? "compare" : "cut", cuts };
+  }
+  if (event === "UNDO" && intro.cuts > 0) return { stage: "cut", cuts: intro.cuts - 1 };
+  return intro;
+}
+
+function introRoute(saved, hasValidActive = false) {
+  const history = Object.keys(saved.days || {}).length > 0
+    || Object.keys(saved.recipes || {}).length > 0
+    || (saved.loaves || []).length > 0
+    || Number(saved.stats?.orders) > 0;
+  return hasValidActive || saved.settings?.introSeen || history ? "title" : "intro";
+}
+
+let introStagePainted = "";
+let introCutsPainted = -1;
+let introBound = false;
+
+function introPieces(n) {
+  return Array.from({ length: n }, (_, i) => `<span class="intro-piece" data-piece="${i}" style="left:${100 * i / n}%;width:${100 / n}%"></span>`).join("");
+}
+function introMarks(n) {
+  return Array.from({ length: n - 1 }, (_, i) => `<span class="intro-mark" style="left:${100 * (i + 1) / n}%"></span>`).join("");
+}
+function introText(id, text) {
+  const node = $(id);
+  if (node.textContent !== text) node.textContent = text;
+}
+
+function renderIntro() {
+  if (S.screen !== "intro") return;
+  const intro = S.intro, compare = intro.stage === "compare";
+  const stageChanged = intro.stage !== introStagePainted;
+  $("introCutStage").hidden = compare;
+  $("introCompareStage").hidden = !compare;
+  $("introNext").hidden = !compare;
+  $("introUndo").disabled = intro.cuts === 0;
+  $("introBread").disabled = compare;
+  introText("introInstruction", compare ? "세 조각이 되었어요." : "이 빵을 똑같이 세 조각으로 나눠요.");
+  introText("introStatus", `칼집 ${intro.cuts}개, ${intro.cuts + 1}조각`);
+
+  if (introCutsPainted !== intro.cuts) {
+    introCutsPainted = intro.cuts;
+    const n = intro.cuts + 1;
+    $("introBreadPieces").innerHTML = introPieces(n);
+    $("introBreadMarks").innerHTML = introMarks(n);
+    $("introBread").setAttribute("aria-label", `식빵 ${n}조각. 누르면 칼집 하나를 더해요.`);
+  }
+  if (stageChanged && compare) {
+    for (const n of [2, 3]) {
+      const spec = specOf(4, n), label = labelOf(spec), score = $("introScore" + n);
+      $("introLoaf" + n).innerHTML = introPieces(n) + introMarks(n);
+      introText("introName" + n, nameKo(spec) + (spec.isTuplet ? "" : " · 일반 분할"));
+      score.setAttribute("viewBox", "0 0 114 50");
+      score.setAttribute("aria-label", labelKo(label));
+      score.innerHTML = notesSvg(label, evenXs(n, 114), 114, 50, false, "var(--board)");
+    }
+  }
+  introText("introWholeLabel", `${beatsKo(loafBeats(4))} 식빵`);
+  introText("introCutEnd", `${beatsKo(loafBeats(4))} 끝`);
+  introText("introCompareEnd", `${beatsKo(loafBeats(4))} 끝`);
+  if (stageChanged && introStagePainted) {
+    (compare ? $("introCompareTitle") : $("introBread")).focus({ preventScroll: true });
+  }
+  introStagePainted = intro.stage;
+}
+
+function changeIntro(event) {
+  if (S.screen !== "intro") return;
+  const next = introTransition(S.intro, event);
+  if (next === S.intro) return;
+  stopIntro();
+  setState({ intro: next });
+}
+
+function completeIntro() {
+  if (S.screen !== "intro") return;
+  stopIntro();
+  save.settings = { ...save.settings, introSeen: true };
+  store.save(save);
+  advanceTutorial(1);
+  openDay("d0", { checkSound: false });
+}
+
+function bindIntro() {
+  if (introBound) return;
+  introBound = true;
+  $("introBread").addEventListener("click", () => changeIntro("CUT"));
+  $("introUndo").addEventListener("click", () => changeIntro("UNDO"));
+  $("introSkip").addEventListener("click", completeIntro);
+  $("introNext").addEventListener("click", completeIntro);
+}
+
+// 맛보기는 준비 박 없이 한 덩이의 길이만 재생한다.
+function introPlan(n, bpm = 60) {
+  if (n !== 2 && n !== 3) throw new RangeError("맛보기 조각 수가 범위를 벗어났어요.");
+  const spec = specOf(4, n), beat = beatSec(bpm), total = num(toBeats(spec.T));
+  const pieceSeconds = num(toBeats(spec.piece)) * beat;
+  const ev = onsets(spec).map((at) => ({
+    t: num(toBeats(at)), type: "tone", midi: 79,
+    dur: Math.min(0.22, pieceSeconds * 0.9), peak: 0.36, hold: false,
+  }));
+  return { n, Tb: total, beat, total, countIn: 0, span: total, ev };
+}
+
+let introRun = null;
+let introRaf = 0;
+let introToken = 0;
+let introAudioBound = false;
+let introMuted = false;
+
+function introPlaybackState() {
+  return {
+    active: !!introRun, token: introToken, n: introRun?.plan.n || null,
+    clock: introRun?.clock || null, elapsed: introRun?.elapsed || 0,
+    scheduled: introRun?.scheduled || 0, groupSize: introRun?.source?.group.size() || 0,
+  };
+}
+function introReadyToPlay() {
+  return S.screen === "intro" && S.intro.stage === "compare" && !document.hidden;
+}
+function introAudioText(text) {
+  introText("introAudioStatus", text);
+}
+function resetIntroPlaybackVisuals() {
+  for (const n of [2, 3]) {
+    const row = $("introRow" + n);
+    row.classList.remove("intro-playing", "intro-finished", "intro-reduced");
+    row.querySelectorAll(".intro-piece").forEach((piece) => piece.classList.remove("intro-current"));
+    const line = row.querySelector(".intro-playhead");
+    if (line) { line.hidden = true; line.style.left = "0%"; }
+    $("introListen" + n).setAttribute("aria-pressed", "false");
+    const label = $("introPlaying" + n);
+    if (label) label.textContent = "";
+  }
+}
+function disposeIntroSource(r) {
+  if (!r?.source) return;
+  r.source.group.silence();
+  r.source.out.disconnect();
+  r.source.ctx.removeEventListener("statechange", r.onAudioState);
+  r.source = null;
+}
+function stopIntro() {
+  introToken++;
+  cancelAnimationFrame(introRaf);
+  introRaf = 0;
+  disposeIntroSource(introRun);
+  introRun = null;
+  resetIntroPlaybackVisuals();
+}
+function introVisualFallback(r) {
+  disposeIntroSource(r);
+  r.clock = "visual";
+  r.perfStart = performance.now() / 1000 - r.elapsed;
+  r.scheduled = 0;
+  introAudioText("소리 없이도 비교할 수 있어요.");
+}
+function renderIntroAudio() {
+  if (S.screen !== "intro") return;
+  $("introMute").hidden = false;
+  $("introMute").textContent = introMuted ? "소리 켜기" : "소리 끄기";
+  $("introMute").setAttribute("aria-pressed", String(introMuted));
+  for (const n of [2, 3]) {
+    $("introListen" + n).disabled = false;
+    const loaf = $("introLoaf" + n), row = $("introRow" + n);
+    if (!loaf.querySelector(".intro-playhead")) {
+      const line = document.createElement("span");
+      line.className = "intro-playhead";
+      line.setAttribute("aria-hidden", "true");
+      line.hidden = true;
+      loaf.append(line);
+    }
+    if (!$("introPlaying" + n)) {
+      const label = document.createElement("span");
+      label.id = "introPlaying" + n;
+      label.className = "intro-playing-label";
+      row.querySelector(".intro-row-heading").append(label);
+    }
+  }
+}
+function playIntro(n) {
+  if (!introReadyToPlay()) return;
+  stopIntro();
+  renderIntroAudio();
+  const plan = introPlan(n), token = introToken;
+  const r = {
+    plan, token, source: null, scheduled: 0, elapsed: 0, current: -1,
+    clock: "visual", perfStart: performance.now() / 1000,
+    audioStart: 0, stalled: makeStall(), onAudioState: null,
+  };
+  introRun = r;
+  const a = audio();
+  // Suspended resume promises never schedule late sounds for this playback.
+  const volume = masterGain({ ...save.settings, muted: false });
+  if (a?.state === "running" && !introMuted && volume > 0) {
+    try {
+      const out = a.createGain();
+      out.gain.value = volume;
+      out.connect(a.destination);
+      r.source = { ctx: a, out, noise: AUDIO.noise, group: makeGroup() };
+      r.onAudioState = () => {
+        if (introRun === r && a.state !== "running") introVisualFallback(r);
+      };
+      a.addEventListener("statechange", r.onAudioState);
+      r.clock = "audio";
+      r.audioStart = a.currentTime + 0.04;
+      schedule(r.source, plan, r.audioStart);
+      r.scheduled = plan.ev.length;
+    } catch (error) {
+      introVisualFallback(r);
+    }
+  }
+  const row = $("introRow" + n);
+  row.classList.add("intro-playing");
+  row.classList.toggle("intro-reduced", motionReduced());
+  $("introListen" + n).setAttribute("aria-pressed", "true");
+  $("introPlaying" + n).textContent = "재생 중";
+  introAudioText(r.clock === "audio" ? "선택한 줄이 한 박 동안 재생돼요." : "소리 없이도 비교할 수 있어요.");
+  introRaf = requestAnimationFrame(frameIntro);
+}
+function frameIntro() {
+  const r = introRun;
+  if (!r || r.token !== introToken) return;
+  if (!introReadyToPlay()) { stopIntro(); return; }
+  const perfNow = performance.now();
+  if (r.clock === "audio") {
+    const a = r.source.ctx;
+    const now = a.currentTime - (a.outputLatency || a.baseLatency || 0);
+    r.elapsed = Math.max(0, now - r.audioStart);
+    if (r.stalled(now, perfNow)) introVisualFallback(r);
+  } else r.elapsed = Math.max(0, perfNow / 1000 - r.perfStart);
+  const duration = r.plan.total * r.plan.beat;
+  const fraction = Math.min(1, r.elapsed / duration), finished = fraction >= 1;
+  const index = finished ? -1 : Math.min(r.plan.n - 1, Math.floor(fraction * r.plan.n));
+  const row = $("introRow" + r.plan.n), line = row.querySelector(".intro-playhead");
+  const reduced = motionReduced();
+  row.classList.toggle("intro-reduced", reduced);
+  line.hidden = reduced || finished;
+  if (!reduced) line.style.left = fraction * 100 + "%";
+  if (index !== r.current) {
+    r.current = index;
+    row.querySelectorAll(".intro-piece").forEach((piece, i) => piece.classList.toggle("intro-current", i === index));
+  }
+  if (finished) {
+    disposeIntroSource(r);
+    introRun = null;
+    introRaf = 0;
+    row.classList.remove("intro-playing");
+    row.classList.add("intro-finished");
+    $("introListen" + r.plan.n).setAttribute("aria-pressed", "false");
+    $("introPlaying" + r.plan.n).textContent = "한 박 끝";
+    introAudioText("재생이 끝났어요. 두 줄은 같은 한 박이에요.");
+    return;
+  }
+  introRaf = requestAnimationFrame(frameIntro);
+}
+function bindIntroAudio() {
+  if (introAudioBound) return;
+  introAudioBound = true;
+  introMuted = !!save.settings.muted;
+  for (const n of [2, 3]) $("introListen" + n).addEventListener("click", () => playIntro(n));
+  $("introMute").addEventListener("click", () => {
+    stopIntro();
+    introMuted = !introMuted;
+    renderIntroAudio();
+    introAudioText(introMuted ? "소리 없이도 비교할 수 있어요." : "듣기 버튼을 눌러 소리를 확인해요.");
+  });
+  $("introAudioStatus").setAttribute("role", "status");
+  $("introAudioStatus").setAttribute("aria-live", "polite");
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stopIntro();
+  });
+  window.addEventListener("pagehide", stopIntro);
+  window.addEventListener("hashchange", stopIntro);
 }
 
 // == 11 TESTS ==
@@ -3220,12 +3678,14 @@ function motionReduced() {
   const mode = save.settings.motion;
   return mode === "reduced" || (mode === "system" && matchMedia("(prefers-reduced-motion: reduce)").matches);
 }
-window.__sbg = { state: () => S, run: () => run, clock: () => clock(), audioCtx: () => ctx, lastJudge: () => lastJudge, laneLw: () => laneLw, saved: () => save, orderAt, choicesOf, labelKo, labelBeats, queueOf, dayOf };
+window.__sbg = { introPlayback: introPlaybackState, introPlan, state: () => S, run: () => run, clock: () => clock(), audioCtx: () => ctx, lastJudge: () => lastJudge, laneLw: () => laneLw, saved: () => save, orderAt, choicesOf, labelKo, labelBeats, queueOf, dayOf };
 
 function boot() {
   store = makeStore(pickBackend());
   save = store.load();
   bindWorkbench();
+  bindIntro();
+  bindIntroAudio();
   if (typeof bindCalibration === "function") bindCalibration();
   if (typeof bindExtras === "function") bindExtras();
   const tests = runTests(), set = save.settings, base = { guide: set.guide, slow: set.slow, offset: set.tapOffsetMs, showMs: set.showMs };
@@ -3241,7 +3701,7 @@ function boot() {
     setState(Object.assign(base, { screen: "shift", day: d.id, sliced: false, cards: [], dev: true, sum: null }, jump ? Object.assign({ idx: i, results: fake }, enterOrder(at, jump)) : openAt(at, i, fake)));
     return;
   }
-  setState(base);
+  setState({ ...base, screen: introRoute(save, !!fromActive(S, save.active)) });
 }
 
 boot();

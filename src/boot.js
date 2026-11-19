@@ -2,6 +2,8 @@ function boot() {
   store = makeStore(pickBackend());
   save = store.load();
   bindWorkbench();
+  bindIntro();
+  bindIntroAudio();
   if (typeof bindCalibration === "function") bindCalibration();
   if (typeof bindExtras === "function") bindExtras();
   const tests = runTests(), set = save.settings, base = { guide: set.guide, slow: set.slow, offset: set.tapOffsetMs, showMs: set.showMs };
@@ -17,5 +19,5 @@ function boot() {
     setState(Object.assign(base, { screen: "shift", day: d.id, sliced: false, cards: [], dev: true, sum: null }, jump ? Object.assign({ idx: i, results: fake }, enterOrder(at, jump)) : openAt(at, i, fake)));
     return;
   }
-  setState(base);
+  setState({ ...base, screen: introRoute(save, !!fromActive(S, save.active)) });
 }

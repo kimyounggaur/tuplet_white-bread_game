@@ -1,0 +1,52 @@
+  <section class="screen intro-screen" id="introScr" data-screen="intro" aria-labelledby="introTitle" hidden>
+    <header class="intro-header">
+      <svg class="intro-timer" viewBox="0 0 96 96" aria-hidden="true"><use href="#timer-normal"/></svg>
+      <div><p class="intro-eyebrow">연습</p><h1 id="introTitle" tabindex="-1">같은 한 박, 다른 조각</h1></div>
+    </header>
+    <p class="intro-instruction" id="introInstruction">이 빵을 똑같이 세 조각으로 나눠요.</p>
+
+    <div id="introCutStage">
+      <div class="intro-board">
+        <p class="intro-whole-label" id="introWholeLabel"></p>
+        <button class="intro-loaf intro-cut-loaf" id="introBread" type="button" aria-describedby="introActionHint introStatus">
+          <span class="intro-pieces" id="introBreadPieces" aria-hidden="true"></span>
+          <span class="intro-marks" id="introBreadMarks" aria-hidden="true"></span>
+          <span class="intro-tap-label" aria-hidden="true">빵을 눌러요</span>
+        </button>
+        <div class="intro-ruler" aria-hidden="true"><span>시작</span><span id="introCutEnd"></span></div>
+      </div>
+      <p class="intro-action-hint" id="introActionHint">빵을 누르면 칼집이 하나 생겨요.</p>
+    </div>
+
+    <div id="introCompareStage" hidden>
+      <h2 class="intro-compare-title" id="introCompareTitle" tabindex="-1">두 빵의 시작과 끝을 비교해요.</h2>
+      <div class="intro-board intro-compare-board">
+        <div class="intro-boundaries" aria-hidden="true"><span>같은 시작</span><span>같은 끝</span></div>
+        <div class="intro-comparison-row" id="introRow2" data-pieces="2">
+          <div class="intro-row-heading"><strong>두 조각</strong><svg class="intro-score" id="introScore2" role="img"></svg></div>
+          <div class="intro-loaf intro-comparison-loaf" id="introLoaf2" aria-hidden="true"></div>
+          <p class="intro-note-name" id="introName2"></p>
+        </div>
+        <div class="intro-comparison-row" id="introRow3" data-pieces="3">
+          <div class="intro-row-heading"><strong>세 조각</strong><svg class="intro-score" id="introScore3" role="img"></svg></div>
+          <div class="intro-loaf intro-comparison-loaf" id="introLoaf3" aria-hidden="true"></div>
+          <p class="intro-note-name" id="introName3"></p>
+        </div>
+        <div class="intro-ruler" aria-hidden="true"><span>시작</span><span id="introCompareEnd"></span></div>
+      </div>
+      <p class="intro-explanation">조각 수가 달라도 둘 다 한 박이에요.</p>
+      <div class="intro-listen-actions">
+        <button class="btn" id="introListen2" type="button" disabled>두 조각 듣기</button>
+        <button class="btn" id="introListen3" type="button" disabled>세 조각 듣기</button>
+      </div>
+      <p class="intro-audio-status" id="introAudioStatus">소리 없이도 비교할 수 있어요.</p>
+    </div>
+
+    <p class="intro-status" id="introStatus" role="status" aria-live="polite" aria-atomic="true"></p>
+    <button class="btn pri intro-next" id="introNext" type="button" hidden>다음 주문</button>
+    <footer class="intro-footer">
+      <button class="btn" id="introUndo" type="button" disabled>한 번 되돌리기</button>
+      <button class="btn" id="introMute" type="button" hidden aria-pressed="false">소리 끄기</button>
+      <button class="btn intro-skip" id="introSkip" type="button">건너뛰기</button>
+    </footer>
+  </section>

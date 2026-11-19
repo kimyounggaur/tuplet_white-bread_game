@@ -2,7 +2,7 @@
 const SAVE_KEY = "sbg_save_v1", BACKUP_KEY = "sbg_save_v1_backup";
 const defaultSave = () => ({
   version: 1,
-  settings: { volume: 0.8, muted: false, guide: true, slow: false, tapOffsetMs: 0, calibrated: false, showMs: true, motion: "system", tutorialSeen: false, tutorialStep: 0 },
+  settings: { volume: 0.8, muted: false, guide: true, slow: false, tapOffsetMs: 0, calibrated: false, showMs: true, motion: "system", tutorialSeen: false, tutorialStep: 0, introSeen: false },
   days: {},  // "d0": { passed, stamp(0 없음 · 1 도장 · 2 장인 도장), runs, best(● 수의 최고) }
   recipes: {},  // "4/3": { got, knife(0 없음 · 1 들쭉날쭉 · 2 고른 편 · 3 장인) }
   loaves: [],  // 얻은 덩이 카드(음표 분모)

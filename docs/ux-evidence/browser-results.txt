@@ -1,0 +1,10 @@
+2026-11-20 · managed Chrome, automated same-origin iframe DOM controls
+Core self tests 51/51.
+Intro regression scenarios 10/10, failures 0.
+IN-01 PASS; IN-02 PASS; AU-01 PASS; REG-01 PASS; IN-03 PASS;
+IN-05 PASS; REG-UX3 PASS; UI-01 PASS; IN-04 PASS; REG-03 PASS.
+Campaign 6/6 days, 43 deliveries, 4 discovery scenes, 15 cards, resume d0-02 PASS.
+Layout 7 sizes x 51 waypoints = 357/357, problems 0, console/runtime errors 0, external requests 0.
+Real Enter/Space on intro bread: 0 -> 1 -> 2 cuts, focus moved to comparison title.
+Real browser comparison buttons: two and three notes each showed playback and one-beat end.
+Physical iPhone/Android and first-time learner observation NOT_RUN.

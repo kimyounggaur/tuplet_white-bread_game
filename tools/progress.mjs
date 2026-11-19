@@ -55,14 +55,20 @@ async function playAll(mode) {
     page.on("pageerror", (error) => errors.push(error.message));
     await page.goto(url);
     const press = (target) => activate(page, target, mode);
-    await press("#start");
+    if ((await readGame(page)).screen === "intro") {
+      await press("#introSkip");
+      await press("#openSet");
+      await press("#quit");
+    } else {
+      await press("#start");
+    }
     assert.equal(await page.locator('#days [data-day="d1"]').isDisabled(), true, "다음 단은 처음에는 잠겨 있다");
     const days = [];
     const discoveries = [];
     let deliveries = 0;
     for (let day = 0; day <= 5; day++) {
       await press(`#days [data-day="d${day}"]`);
-      if (day === 0) await press(page.getByRole("button", { name: "들려요", exact: true }));
+      if ((await readGame(page)).screen === "sound") await press(page.getByRole("button", { name: "들려요", exact: true }));
       for (let limit = 0; limit < 50; limit++) {
         const game = await readGame(page);
         if (game.screen === "close") {

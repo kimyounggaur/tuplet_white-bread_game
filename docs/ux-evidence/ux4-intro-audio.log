@@ -1,0 +1,5 @@
+AU-INTRO-SCHEDULE PASS · actual low-level scheduler, 2/3 exact starts, common end, replacement cancels old group
+AU-INTRO-CANCEL PASS · visibility and pagehide cancel sources, callbacks, gain and listeners
+AU-INTRO-STALE PASS · delayed audio resume cannot resurrect cancelled intro playback
+AU-INTRO-FALLBACK PASS · gain failure uses visual timeline and finishes
+4 intro runtime groups passed with simulated context and clock. This does not verify physical-device audio.

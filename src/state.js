@@ -6,6 +6,7 @@ let S = {
   guide: true, slow: false, offset: 0, showMs: true, sheet: false,
   lean: 0, leanHintUsed: false, unlockedNext: false, soundHelp: false,
   calibFrom: "title", calibResult: null, calibMessage: "", calibActive: false,
+  intro: { stage: "cut", cuts: 0 },
   free: null, back: "", resetAsk: false,
 };
 function setState(patch) {

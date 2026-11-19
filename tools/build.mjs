@@ -18,15 +18,16 @@ const sections = [
   ["AUDIO", read("audio-state.js"), read("audio.js")],
   ["RUN", read("run.js")],
   ["STORAGE", read("storage.js")],
-  ["SCREENS", read("actions.js"), read("screens.js"), read("calibration.js"), read("extras.js")],
+  ["SCREENS", read("actions.js"), read("screens.js"), read("calibration.js"), read("extras.js"), read("intro.js"), read("intro-audio.js")],
   ["TESTS", ...["runner", "engine", "orders", "board", "audio", "storage"].map((name) => read(name + "-tests.js"))],
   ["BOOT", ...["measure.js", "audio-boot.js", "slice-boot.js", "bindings.js", "boot.js"].map(read)],
 ];
 const code = sections.map(([name, ...parts], i) => "// == " + (i + 1) + " " + name + " ==\n" + parts.join("\n\n")).join("\n\n");
 const main = '<script id="main">\n(() => {\n"use strict";\nconst $ = (id) => document.getElementById(id);\n\n' + code + '\n\nboot();\n})();\n</script>';
 const html = read("shell.html")
-  .replace("<!-- STYLE -->", () => "<style>\n" + read("style.css") + "\n" + read("extras.css") + "\n</style>")
+  .replace("<!-- STYLE -->", () => "<style>\n" + read("style.css") + "\n" + read("extras.css") + "\n" + read("intro.css") + "\n" + read("intro-audio.css") + "\n</style>")
   .replace("<!-- ART -->", () => read("art.html"))
+  .replace("<!-- INTRO SCREEN -->", () => read("intro.html"))
   .replace("<!-- EXTRAS SCREENS -->", () => read("extras-screens.html"))
   .replace("<!-- EXTRAS ORDER -->", () => read("extras-order.html"))
   .replace("<!-- EXTRAS CONTROLS -->", () => read("extras-controls.html"))

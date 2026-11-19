@@ -81,4 +81,4 @@ function motionReduced() {
   const mode = save.settings.motion;
   return mode === "reduced" || (mode === "system" && matchMedia("(prefers-reduced-motion: reduce)").matches);
 }
-window.__sbg = { state: () => S, run: () => run, clock: () => clock(), audioCtx: () => ctx, lastJudge: () => lastJudge, laneLw: () => laneLw, saved: () => save, orderAt, choicesOf, labelKo, labelBeats, queueOf, dayOf };
+window.__sbg = { introPlayback: introPlaybackState, introPlan, state: () => S, run: () => run, clock: () => clock(), audioCtx: () => ctx, lastJudge: () => lastJudge, laneLw: () => laneLw, saved: () => save, orderAt, choicesOf, labelKo, labelBeats, queueOf, dayOf };

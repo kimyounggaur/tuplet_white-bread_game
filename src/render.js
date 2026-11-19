@@ -17,6 +17,8 @@ function render() {
   $("openSet").setAttribute("aria-expanded", String(S.sheet));
 
   if (switched && work) measure();
+  if (switched && S.screen !== "intro") stopIntro();
+  if (S.screen === "intro") { renderIntro(); renderIntroAudio(); }
   if (S.screen === "title") {
     const active = !!fromActive(S, save.active);
     $("resume").toggleAttribute("hidden", !active);
@@ -54,7 +56,9 @@ function advanceTutorial(step) {
 }
 function renderCoach() {
   const bubble = $("coach");
-  const c = coachFor(S, S.screen === "shift" ? orderAt(S) : null, tutorialStep());
+  const o = S.screen === "shift" ? orderAt(S) : null;
+  const inlineHelp = (o?.id === "d0-01" && S.phase === "pick") || (o?.id === "d1-01" && S.phase === "mark");
+  const c = inlineHelp ? null : coachFor(S, o, tutorialStep());
   bubble.toggleAttribute("hidden", !c);
   if (!c) return;
   const anchor = $(c.target).getBoundingClientRect(), app = $("app").getBoundingClientRect();

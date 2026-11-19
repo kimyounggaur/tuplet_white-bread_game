@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>잇단음표 식빵 공방</title>
+<!-- STYLE -->
+</head>
+<body>
+<!-- ART -->
+<div id="app">
+  <header class="hud" id="hud">
+    <button class="icon" id="freeBack" type="button" hidden aria-label="처음으로"><svg class="i" aria-hidden="true"><use href="#icon-back"/></svg>뒤로</button>
+    <strong id="hudTitle"></strong>
+    <ol class="dots" id="dots" aria-label="주문 진행"></ol>
+    <button class="chip" id="soundChip" type="button">소리 켜기</button>
+    <button class="icon" id="openSet" type="button" aria-expanded="false" aria-controls="sheet"><svg class="i" aria-hidden="true"><use href="#icon-settings"/></svg>설정</button>
+  </header>
+
+  <section class="order" id="order" aria-live="polite">
+    <span class="tag" id="orderTag"></span>
+    <p class="otext" id="orderText"></p>
+    <div class="oside">
+      <svg class="oscore" id="orderScore" role="img" hidden></svg>
+      <button class="mini" id="orderPlay" type="button" hidden>주문 듣기</button>
+    </div>
+    <!-- EXTRAS ORDER -->
+  </section>
+
+  <section class="shelf" id="shelf" aria-label="선반. 실제 비율"></section>
+  <section class="board" id="board" aria-label="도마"></section>
+  <div class="readout-row" id="readoutRow">
+    <svg class="readout-timer readout-normal" viewBox="0 0 120 116" aria-hidden="true"><use href="#timer-normal"/></svg>
+    <svg class="readout-timer readout-happy" viewBox="0 0 120 116" aria-hidden="true"><use href="#timer-happy"/></svg>
+    <svg class="readout-timer readout-puzzled" viewBox="0 0 120 116" aria-hidden="true"><use href="#timer-puzzled"/></svg>
+    <p class="readout" id="readout" role="status"></p>
+  </div>
+
+  <section class="controls" id="controls">
+    <div class="grp" id="cPick"><button class="btn pri" id="pickOk" type="button">확정</button></div>
+    <div class="grp" id="cMark" hidden>
+      <button class="sq" id="minus" type="button" aria-label="칼집 줄이기">−</button>
+      <output class="mout" id="markOut"></output>
+      <button class="sq" id="plus" type="button" aria-label="칼집 늘리기">+</button>
+      <button class="btn pri" id="markOk" type="button">확정</button>
+    </div>
+    <div class="grp" id="cYesNo" hidden>
+      <button class="btn" id="yes" type="button">숫자가 필요해요</button>
+      <button class="btn" id="no" type="button">필요 없어요</button>
+    </div>
+    <div class="grp" id="cLabel" hidden>
+      <button class="lab" id="lab0" type="button"></button>
+      <button class="lab" id="lab1" type="button"></button>
+      <button class="lab" id="lab2" type="button"></button>
+    </div>
+    <div class="grp" id="cSlice" hidden>
+      <button class="pad" id="pad" type="button" aria-label="썰기 탭 패드"><svg class="pad-timer" viewBox="0 0 120 116" aria-hidden="true"><use href="#timer-counting"/></svg><span id="padMain"></span><small id="padSub"></small></button>
+      <div class="side">
+        <button class="btn" id="machine" type="button"><svg class="i" aria-hidden="true"><use href="#icon-machine"/></svg>기계 썰기</button>
+        <button class="btn" id="ship" type="button">납품</button>
+      </div>
+    </div>
+    <div class="grp" id="cDeliver" hidden>
+      <button class="btn" id="again" type="button"><svg class="i" aria-hidden="true"><use href="#icon-replay"/></svg><span id="againText">다시 듣기</span></button>
+      <button class="btn pri" id="next" type="button">다음 주문</button>
+    </div>
+    <div class="grp" id="cScene" hidden>
+      <button class="btn" id="sceneHear" type="button"><svg class="i" aria-hidden="true"><use href="#icon-sound"/></svg><span id="sceneHearText">들어 보기</span></button>
+      <button class="btn pri" id="sceneOk" type="button">알겠어요</button>
+    </div>
+    <!-- EXTRAS CONTROLS -->
+  </section>
+
+  <section class="sheet" id="sheet" role="dialog" aria-label="설정" hidden>
+    <div class="row"><label for="setGuide"><input id="setGuide" type="checkbox" checked>칼집 안내선 보이기</label></div>
+    <div class="row"><label for="setSlow"><input id="setSlow" type="checkbox">느리게</label></div>
+    <div class="row">
+      <span>탭 보정</span>
+      <button class="sq sm" id="offMinus" type="button" aria-label="탭 보정 줄이기">−</button>
+      <output id="offOut">0ms</output>
+      <button class="sq sm" id="offPlus" type="button" aria-label="탭 보정 늘리기">+</button>
+    </div>
+    <div class="row"><button class="btn" id="openCalib" type="button">박자 맞추기</button><button class="btn" id="quit" type="button">지도로 나가기</button></div>
+    <div class="row"><button class="btn" id="closeSet" type="button">닫기</button><span class="foot" id="foot"></span></div>
+  </section>
+
+  <section class="screen title-screen" id="title" data-screen="title" aria-labelledby="gameTitle">
+    <div class="shop-sign">
+      <span class="time-signature" aria-label="4분의 4박자"><span>4</span><span>4</span></span>
+      <h1 id="gameTitle" tabindex="-1">잇단음표 식빵 공방</h1>
+    </div>
+    <svg class="workshop-art" viewBox="0 0 640 344" aria-hidden="true"><use href="#workshop"/></svg>
+    <p class="title-copy">식빵을 나누고, 조각마다 숨은 리듬을 들어요.</p>
+    <div class="screen-actions title-actions">
+      <button class="btn pri" id="start" type="button">영업 시작</button>
+      <button class="btn pri" id="resume" type="button" hidden>이어서 영업</button>
+      <div class="title-secondary">
+        <button class="btn" id="openBook" type="button"><svg class="i" aria-hidden="true"><use href="#icon-book"/></svg>레시피북</button>
+        <button class="btn" id="openFree" type="button"><svg class="i" aria-hidden="true"><use href="#icon-board"/></svg>자유 도마</button>
+        <button class="btn" id="openSettings" type="button"><svg class="i" aria-hidden="true"><use href="#icon-settings"/></svg>설정</button>
+      </div>
+    </div>
+    <small class="foot title-version">v0.9 검증판</small>
+  </section>
+
+  <section class="screen map-screen" id="mapScr" data-screen="map" aria-labelledby="mapTitle" hidden>
+    <header class="screen-head"><h1 id="mapTitle" tabindex="-1">영업일</h1><button class="btn" id="mapBack" type="button">처음으로</button></header>
+    <div class="days day-map" id="days"></div>
+  </section>
+
+  <section class="screen close-screen" id="closeScr" data-screen="close" aria-labelledby="closeTitle" hidden>
+    <header class="screen-head"><h1 id="closeTitle" tabindex="-1">마감</h1><svg class="close-timer" viewBox="0 0 120 116" aria-hidden="true"><use id="closeTimer" href="#timer-happy"/></svg></header>
+    <p id="closeSum"></p>
+    <div id="closeStamp"></div>
+    <ul id="closeCards" aria-label="오늘 얻은 카드" hidden></ul>
+    <ol id="closeList" aria-label="주문별 기록"></ol>
+    <div class="screen-actions">
+      <button class="btn pri" id="restart" type="button">다시 영업</button>
+      <button class="btn" id="toTitle" type="button">지도로</button>
+      <button class="btn" id="nextDay" type="button" hidden>다음 영업일</button>
+    </div>
+  </section>
+
+  <section class="screen sound-screen" id="soundScr" data-screen="sound" aria-labelledby="soundTitle" hidden>
+    <h1 id="soundTitle" tabindex="-1">소리 확인</h1>
+    <svg class="sound-timer" viewBox="0 0 120 116" aria-hidden="true"><use href="#timer-normal"/></svg>
+    <p id="soundGuide" role="status">소리를 듣고 들리는지 확인해요.</p>
+    <div class="screen-actions">
+      <button class="btn pri" id="sampleSound" type="button">소리 듣기</button>
+      <button class="btn" id="heard" type="button">들려요</button>
+      <button class="btn" id="notHeard" type="button">안 들려요</button>
+      <button class="btn" id="skipSound" type="button" hidden>그냥 시작</button>
+    </div>
+  </section>
+
+  <section class="screen calibration-screen" id="calibScr" data-screen="calib" aria-labelledby="calibTitle" hidden>
+    <header class="screen-head"><h1 id="calibTitle" tabindex="-1">박자 맞추기</h1><button class="btn" id="calibClose" type="button">닫기</button></header>
+    <p>메트로놈에 맞춰 여덟 번 탭해요.</p>
+    <button class="pad" id="calibPad" type="button">시작하기</button>
+    <p id="calibOut" role="status"></p>
+    <div class="screen-actions">
+      <button class="btn" id="calibRetry" type="button">다시 하기</button>
+      <button class="btn pri" id="calibSave" type="button" disabled>저장하고 닫기</button>
+    </div>
+  </section>
+
+  <section class="screen" id="errorScr" data-screen="error" aria-label="오류" hidden>
+    <h1 tabindex="-1">문제가 생겼어요</h1>
+    <button class="btn pri" id="refresh" type="button">새로고침</button>
+  </section>
+
+  <div class="coach" id="coach" hidden>
+    <svg class="coach-timer" viewBox="0 0 120 116" aria-hidden="true"><use href="#timer-normal"/></svg>
+    <p id="coachText"></p>
+    <div id="coachChoices" hidden><button class="btn" id="coachYes" type="button">해 볼게요</button><button class="btn" id="coachNo" type="button">나중에</button></div>
+  </div>
+  <!-- EXTRAS SCREENS -->
+  <section class="screen" id="testPage" data-screen="test" aria-label="자가검사" hidden></section>
+  <div class="rotate" id="rotate" hidden>세로로 돌려 주세요</div>
+</div>
+
+<!-- MAIN -->
+</body>
+</html>

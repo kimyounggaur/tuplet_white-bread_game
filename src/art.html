@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" class="art-sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="art-wall" width="42" height="42" patternUnits="userSpaceOnUse">
+      <rect width="42" height="42" fill="var(--steel-soft)"/>
+      <path d="M0 42V0H42" fill="none" stroke="var(--steel)" stroke-opacity=".14"/>
+      <path d="M4 4h12M4 4v12" fill="none" stroke="var(--panel)" stroke-opacity=".63" stroke-width="2" stroke-linecap="round"/>
+    </pattern>
+    <pattern id="art-linen" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect width="16" height="16" fill="var(--panel)"/>
+      <path d="M0 4h16M4 0v16" fill="none" stroke="var(--steel)" opacity=".33" stroke-width="5"/>
+    </pattern>
+    <pattern id="art-crumb" width="16" height="13" patternUnits="userSpaceOnUse">
+      <g fill="var(--crust)" opacity=".24">
+        <ellipse cx="3" cy="4" rx="1.5" ry="1.1"/>
+        <ellipse cx="12" cy="9" rx="1" ry="1.4"/>
+      </g>
+    </pattern>
+    <symbol id="loaf-art" viewBox="0 0 164 101">
+      <path d="M14 62C0 28 21 15 41 17c9-13 33-18 48-8 16-10 39-5 47 8 18 1 25 16 22 33l-7 38c-1 6-4 8-11 8H28c-7 0-10-3-11-9Z" fill="var(--crust)" stroke="var(--crust)" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M14 54c-6-18 5-29 23-27 13-13 36-14 49-7 14-10 38-6 46 7 15 2 22 10 19 26l-7 32c-1 3-3 4-7 4H28c-4 0-6-2-7-6Z" fill="var(--crumb)"/>
+      <path d="M14 54c-6-18 5-29 23-27 13-13 36-14 49-7 14-10 38-6 46 7 15 2 22 10 19 26l-7 32c-1 3-3 4-7 4H28c-4 0-6-2-7-6Z" fill="url(#art-crumb)"/>
+      <path d="M19 55c9-10 20-14 30-13 9-8 22-8 35-2 12-6 27-7 36-1 13-1 24 4 28 9" fill="none" stroke="var(--crumb-2)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M29 83h104" stroke="var(--crust)" opacity=".19" stroke-width="2" stroke-linecap="round"/>
+      <path d="M44 55l3-2m13 20 3-2m46-19 2-2m17 20 2-2" fill="none" stroke="var(--crust)" opacity=".48" stroke-width="2.5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="cutting-knife" viewBox="0 0 40 48">
+      <path d="M15 4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v15H15Z" fill="var(--steel)" stroke="var(--ink)" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M11 18h20l-3 18c-1 7-6 10-14 10Z" fill="var(--steel-soft)" stroke="var(--ink)" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M18 23h8m-8 4h7" stroke="var(--panel)" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="21" cy="9" r="2" fill="var(--steel-soft)"/>
+    </symbol>
+    <symbol id="timer-body" viewBox="0 0 120 116">
+      <path d="M27 101l-5 9h17l6-8m50-1 4 9H83l-6-8" fill="var(--ink)" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M27 32 17 21a16 16 0 0 1 23-9l5 10m49 10 10-11a16 16 0 0 0-23-9l-5 10" fill="var(--steel-soft)" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="50" y="6" width="20" height="15" rx="5" fill="var(--steel)" stroke="var(--ink)" stroke-width="3"/>
+      <circle cx="60" cy="63" r="44" fill="var(--steel)" stroke="var(--ink)" stroke-width="4"/>
+      <circle cx="60" cy="61" r="36" fill="var(--crumb)" stroke="var(--ink)" stroke-width="2.5"/>
+      <path d="M60 29v5M28 61h4m50 0h5M60 89v4M38 39l3 3m38 37 3 3M38 82l3-3m38-37 3-3" fill="none" stroke="var(--crust)" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/>
+      <path d="M31 72c-4-1-7 3-4 5s7 0 8-2c0-2-1-3-4-3m57 0c4-1 7 3 4 5s-7 0-8-2c0-2 1-3 4-3" fill="var(--crust)" opacity=".36"/>
+    </symbol>
+    <symbol id="timer-normal" viewBox="0 0 120 116">
+      <use href="#timer-body"/>
+      <g fill="var(--ink)"><ellipse cx="46" cy="56" rx="3" ry="4.5"/><ellipse cx="74" cy="56" rx="3" ry="4.5"/></g>
+      <path d="M54 70q6 6 12 0" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="timer-happy" viewBox="0 0 120 116">
+      <use href="#timer-body"/>
+      <path d="M40 56q6-8 12 0m16 0q6-8 12 0M52 69h16q-8 18-16 0Z" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="timer-puzzled" viewBox="0 0 120 116">
+      <use href="#timer-body"/>
+      <g fill="var(--ink)"><ellipse cx="46" cy="57" rx="3" ry="4.5"/><ellipse cx="74" cy="56" rx="3" ry="4.5"/></g>
+      <path d="M42 47l8 1m19-3 8-3M55 73q4-4 9-1" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="timer-counting" viewBox="0 0 120 116">
+      <use href="#timer-body"/>
+      <path d="M40 57q6-8 12 0m16 0q6-8 12 0" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+      <ellipse cx="60" cy="73" rx="4" ry="5" fill="var(--ink)"/>
+    </symbol>
+    <symbol id="stamp-normal" viewBox="0 0 82 82">
+      <g transform="rotate(-12 41 41)" fill="none" stroke="currentColor">
+        <circle cx="41" cy="41" r="35" stroke-width="3.5"/>
+        <circle cx="41" cy="41" r="29" stroke-width="1.5" stroke-dasharray="2 3"/>
+        <path d="m27 41 9 9 18-20" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </symbol>
+    <symbol id="stamp-master" viewBox="0 0 82 82">
+      <g transform="rotate(-12 41 41)" fill="none" stroke="currentColor" stroke-linejoin="round">
+        <circle cx="41" cy="41" r="35" stroke-width="3.5"/>
+        <circle cx="41" cy="41" r="29" stroke-width="1.5" stroke-dasharray="2 3"/>
+        <path d="m41 25 5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2Z" fill="currentColor" stroke-width="2"/>
+      </g>
+    </symbol>
+    <symbol id="book-art" viewBox="0 0 100 74">
+      <path d="M6 13Q30 0 50 13 70 0 94 13v54q-24-11-44 1Q30 56 6 67Z" fill="var(--crumb-2)" stroke="var(--crust)" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M9 13q20-12 41 0 21-12 41 0v48q-22-10-41 2-19-12-41-2Z" fill="var(--crumb)" stroke="var(--crust)" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M50 14v49M18 25q10-4 20 0M18 33q10-4 20 0m-20 8q10-4 20 0m-20 8q10-4 20 0" fill="none" stroke="var(--crust)" stroke-opacity=".62" stroke-width="2" stroke-linecap="round"/>
+      <use href="#loaf-art" x="56" y="22" width="28" height="25"/>
+    </symbol>
+    <symbol id="workshop" viewBox="0 0 640 344">
+      <rect width="640" height="344" fill="url(#art-wall)"/>
+      <path d="M0 222h640v122H0z" fill="var(--board-edge)"/>
+      <path d="M0 217h640v18H0z" fill="var(--board)" stroke="var(--crust)" stroke-width="3"/>
+      <path d="M0 238h640" stroke="var(--crust)" stroke-width="3"/>
+      <path d="M8 259h147m39 0h206m22 0h105m-489 31h291m26 0h224m-196 30h133m-485 0h229" fill="none" stroke="var(--crust)" stroke-opacity=".21" stroke-width="2" stroke-linecap="round"/>
+      <path d="M21 82h122v110H21z" fill="var(--board)" stroke="var(--crust)" stroke-width="5"/>
+      <path d="M30 92h104v89H30z" fill="var(--steel-soft)" stroke="var(--crust)" stroke-width="2.5"/>
+      <path d="M32 148q29-22 53 0t47-10v40H32Z" fill="var(--steel)" opacity=".2"/>
+      <circle cx="105" cy="112" r="10" fill="var(--lit)"/>
+      <path d="M82 92v90m-52-44h104M16 193h133" fill="none" stroke="var(--crust)" stroke-width="5" stroke-linecap="round"/>
+      <path d="M499 50h122v108H499Z" fill="var(--board)" stroke="var(--crust)" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M509 61h102v42H509z" fill="var(--crumb-2)"/>
+      <path d="M507 111h106v35H507z" fill="var(--crumb-2)"/>
+      <path d="M497 104h126m-126 51h126" stroke="var(--crust)" stroke-width="6" stroke-linecap="round"/>
+      <path d="M516 101V81h19v20m-14-22v-5h9v5m20 22V73h26v28m-24-29v-7h22v7m13 29V84h16v17m-13-19v-4h10v4" fill="var(--steel-soft)" stroke="var(--crust)" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M514 130h27l-4 14h-19Zm39-6h19l-2 20h-14Zm27 6h27l-4 14h-19Z" fill="var(--crumb)" stroke="var(--crust)" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M171 40h299" stroke="var(--steel)" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M171 41q150 88 299 0" stroke="var(--steel)" stroke-width="2" fill="none"/>
+      <path d="m190 52 14 26 10-16Zm40 17 14 25 11-18Zm42 12 14 26 12-22Zm44 5 13 25 13-25Zm43-1 15 22 10-26Zm43-8 15 19 7-26Zm40-15 17 15 5-25Z" fill="var(--board-edge)" stroke="var(--crust)" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M27 247 128 233l51 75-147 15Z" fill="url(#art-linen)" stroke="var(--steel)" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M447 247 545 224l76 70-148 27Z" fill="url(#art-linen)" stroke="var(--steel)" stroke-width="2.5" stroke-linejoin="round"/>
+      <ellipse cx="320" cy="299" rx="148" ry="18" fill="var(--crust)" opacity=".22"/>
+      <path d="M161 263c0-6 4-12 9-14l245-32c8-1 15 2 21 8l43 42c9 8 3 19-8 22l-242 32c-10 1-17-3-24-10l-42-35c-4-4-3-9-2-13Z" fill="var(--board-edge)" stroke="var(--crust)" stroke-width="4"/>
+      <path d="m170 257 247-31c8-1 12 1 17 5l37 38c4 4 2 9-3 9l-243 33c-7 1-13-2-19-7l-34-32c-6-5-6-11-2-15Z" fill="var(--board)" stroke="var(--crust)" stroke-width="2" stroke-linejoin="round"/>
+      <path d="m196 264 100-13m-88 36 189-27m-168 39 120-17" fill="none" stroke="var(--crust)" stroke-opacity=".24" stroke-width="2" stroke-linecap="round"/>
+      <path d="M207 258c-15-10-22-23-19-40 7-43 48-50 81-48l109-19c39-7 61 12 61 42 0 14-7 23-27 30l-137 48c-23 9-45 1-68-13Z" fill="var(--crust)" stroke="var(--crust)" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M218 211c30-16 86-31 138-42 29-6 47-4 61 9m-198 62c38-16 98-35 165-50" fill="none" stroke="var(--crumb-2)" stroke-opacity=".62" stroke-width="3" stroke-linecap="round"/>
+      <path d="M316 181c15-4 28-2 38 4m-1-14c15-3 28-1 39 6" fill="none" stroke="var(--crumb)" stroke-opacity=".42" stroke-width="4" stroke-linecap="round"/>
+      <g transform="translate(183 181) rotate(-10 55 36)">
+        <use href="#loaf-art" width="130" height="92"/>
+      </g>
+      <g transform="translate(243 214) rotate(-13 50 32)">
+        <use href="#loaf-art" width="104" height="69"/>
+      </g>
+      <g transform="translate(288 224) rotate(-14 46 28)">
+        <use href="#loaf-art" width="92" height="60"/>
+      </g>
+      <g transform="translate(65 190) rotate(-8 54 53)">
+        <use href="#timer-normal" width="108" height="104"/>
+      </g>
+      <path d="M535 252v-54m33 54v-77m27 76v-51" fill="none" stroke="var(--crust)" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M535 211q-27-17-12-28 12 6 12 23m2 18q22-17 21-27-16-2-21 18m31-11q-30-20-19-30 15 5 19 23m1 14q24-16 21-28-15 3-21 20m26 21q-23-17-15-29 10 5 15 20m1-8q17-15 15-26-14 4-15 17" fill="var(--crumb-2)" stroke="var(--crust)" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M522 230h84l-7 53c-6 10-60 10-70 0Z" fill="var(--steel)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+      <ellipse cx="564" cy="231" rx="42" ry="8" fill="var(--steel-soft)" stroke="var(--ink)" stroke-width="3"/>
+      <path d="M535 248c3 17 34 26 55 13m-52-1c1 13 25 23 48 16" fill="none" stroke="var(--steel-soft)" stroke-opacity=".44" stroke-width="2" stroke-linecap="round"/>
+      <path d="m138 276 8 3m13 1 5 1m-28 9 4 2m271 6 6-2m-10 15 7-2m11-10 6-1" fill="none" stroke="var(--crust)" stroke-width="2.7" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-sound" viewBox="0 0 24 24">
+      <path d="M4 9h4l5-4v14l-5-4H4Zm13 0a4 4 0 0 1 0 6m2-8a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-muted" viewBox="0 0 24 24">
+      <path d="M4 9h4l5-4v14l-5-4H4Zm13 1 4 4m-4 0 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24">
+      <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <g fill="var(--panel)" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="10" cy="18" r="2"/></g>
+    </symbol>
+    <symbol id="icon-replay" viewBox="0 0 24 24">
+      <path d="M5 10a7 7 0 1 1 1 7M5 5v5h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-back" viewBox="0 0 24 24">
+      <path d="m11 5-7 7 7 7M4 12h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-machine" viewBox="0 0 24 24">
+      <path d="M5 14h14v5H5zM8 14v-4h8v4m-6-4V5h4v5M3 19h18m-4-8 3-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-slow" viewBox="0 0 24 24">
+      <path d="M5 16a7 7 0 0 1 14 0M12 16l-3-3m-4 5h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><path d="m8 5 12 7-12 7Z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-chat" viewBox="0 0 24 24"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-6 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm2 5h10m-10 3h7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-score" viewBox="0 0 24 24"><path d="M10 17V6l9-2v10M10 9l9-2M7 19c-2 0-3-1-3-2s2-3 4-3 2 1 2 2-1 3-3 3Zm9-3c-2 0-3-1-3-2s2-3 4-3 2 1 2 2-1 3-3 3Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24"><path d="M6 10h12v10H6zM9 10V7a3 3 0 1 1 6 0v3m-3 4v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-book" viewBox="0 0 24 24"><path d="M3 5q5-2 9 1 4-3 9-1v13q-5-2-9 1-4-3-9-1Zm9 2v11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-board" viewBox="0 0 24 24"><path d="M5 5h12l3 3v11H5Zm4 4h6m-6 4h7m-7 3h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="13" r="7" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 3h4m-2 3V3m0 6v4l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>

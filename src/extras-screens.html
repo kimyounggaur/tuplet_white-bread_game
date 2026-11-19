@@ -1,0 +1,53 @@
+<section class="screen extras-panel" id="bookScr" data-screen="book" aria-label="레시피북" hidden>
+  <div class="extras-head">
+    <h1 class="book-heading"><svg class="book-cover" viewBox="0 0 100 74" aria-hidden="true"><use href="#book-art"/></svg>레시피북</h1>
+    <button class="btn" id="bookBack" type="button">처음으로</button>
+  </div>
+  <p id="bookStamps" role="status"></p>
+  <div class="recipe-grid" id="bookCards" aria-label="레시피 카드"></div>
+  <h2>발견 장면 다시 보기</h2>
+  <div class="book-scenes" id="bookScenes"></div>
+</section>
+<section class="screen extras-panel" id="setScr" data-screen="settings" aria-label="설정" hidden>
+  <div class="extras-head">
+    <h1>설정</h1>
+    <button class="btn" id="setBack" type="button">처음으로</button>
+  </div>
+  <p id="setWarning" class="setting-warning" role="status" hidden>이 기기에서는 기록이 저장되지 않아요.</p>
+  <div class="settings-list">
+    <label class="setting-row" for="settingsVolume">소리 크기 <input id="settingsVolume" type="range" min="0" max="100" step="1"><output id="settingsVolumeOut" for="settingsVolume"></output></label>
+    <label class="setting-row" for="settingsMute">음소거 <input id="settingsMute" type="checkbox"></label>
+    <label class="setting-row" for="settingsGuide">칼집 안내선 보이기 <input id="settingsGuide" type="checkbox"></label>
+    <label class="setting-row" for="settingsSlow">느리게 <input id="settingsSlow" type="checkbox"></label>
+    <div class="setting-row"><button class="btn" id="settingsCalib" type="button">박자 맞추기</button></div>
+    <div class="setting-row settings-offset">
+      <span>탭 보정</span>
+      <button class="sq sm" id="settingsOffsetDown" type="button" aria-label="탭 보정 줄이기">−</button>
+      <output id="settingsOffset">0ms</output>
+      <button class="sq sm" id="settingsOffsetUp" type="button" aria-label="탭 보정 늘리기">+</button>
+    </div>
+    <label class="setting-row" for="settingsShowMs">오차 수치 보이기 <input id="settingsShowMs" type="checkbox"></label>
+    <label class="setting-row" for="settingsMotion">동작 줄이기
+      <select id="settingsMotion">
+        <option value="system">기기 설정 따르기</option>
+        <option value="reduced">줄이기</option>
+        <option value="full">줄이지 않기</option>
+      </select>
+    </label>
+    <div class="setting-row"><button class="btn" id="settingsTutorial" type="button">튜토리얼 다시 보기</button><p id="settingsTutorialOut" role="status"></p></div>
+    <div class="setting-row settings-tests">
+      <h2>자가검사 결과</h2>
+      <p id="settingsTests"></p>
+      <p id="settingsTestFailures" hidden></p>
+    </div>
+    <div class="setting-row">
+      <button class="btn" id="settingsReset" type="button">데이터 초기화</button>
+      <div id="settingsResetConfirm" class="settings-reset" hidden>
+        <p>정말 지울까요?</p>
+        <button class="btn" id="settingsErase" type="button">지우기</button>
+        <button class="btn" id="settingsKeep" type="button">그만두기</button>
+      </div>
+    </div>
+  </div>
+  <p class="foot extras-version" id="settingsVersion">v0.9</p>
+</section>
